@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vortex Verify — Roblox &amp; Discord Link</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card: #131b2e;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #7c3aed;
+      --accent-hover: #6d28d9;
+      --border: #26334d;
+      --success-bg: rgba(34, 197, 94, 0.14);
+      --success-border: rgba(34, 197, 94, 0.45);
+      --success-text: #bbf7d0;
+      --error-bg: rgba(239, 68, 68, 0.14);
+      --error-border: rgba(239, 68, 68, 0.45);
+      --error-text: #fecaca;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #2e1065 0%, var(--bg) 62%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 540px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #c4b5fd;
+      background: rgba(124, 58, 237, 0.18);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 24px;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    #status-banner {
+      display: none;
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 14px;
+      line-height: 1.55;
+      margin-bottom: 20px;
+      border: 1px solid transparent;
+    }
+
+    #status-banner.success {
+      display: block;
+      background: var(--success-bg);
+      border-color: var(--success-border);
+      color: var(--success-text);
+    }
+
+    #status-banner.error {
+      display: block;
+      background: var(--error-bg);
+      border-color: var(--error-border);
+      color: var(--error-text);
+    }
+
+    .steps {
+      background: rgba(9, 13, 22, 0.65);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 22px;
+    }
+
+    .steps ol {
+      padding-left: 18px;
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    .cmd {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      background: rgba(148, 163, 184, 0.15);
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 11px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .btn.primary:hover {
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+    }
+
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .footer-note {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <span class="badge">Vortex Verify · OAuth 2.0</span>
+    <h1>Discord &amp; Roblox Account Verification</h1>
+    <p>
+      Connect your Roblox account securely to your Discord server profile using Roblox OAuth 2.0.
+      Your password and session cookies are never accessed.
+    </p>
+
+    <div id="status-banner" role="status" aria-live="polite"></div>
+
+    <div class="steps">
+      <ol>
+        <li>Go to your Discord server and run <span class="cmd">/verify</span>.</li>
+        <li>Click <strong>Authorize on Roblox</strong> on the bot's message.</li>
+        <li>Sign in to Roblox and approve the requested scopes.</li>
+        <li>Return to Discord to see your verified role and nickname update.</li>
+      </ol>
+    </div>
+
+    <div class="actions">
+      <a class="btn primary" href="https://create.roblox.com/" target="_blank" rel="noopener noreferrer">
+        Roblox Creator Hub
+      </a>
+      <a class="btn" href="https://discord.com/app" target="_blank" rel="noopener noreferrer">
+        Open Discord
+      </a>
+    </div>
+
+    <div class="footer-note">
+      Commands in Discord: <span class="cmd">/verify</span>, <span class="cmd">/whois</span>, and <span class="cmd">/unverify</span>.
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const status = params.get("status");
+      const message = params.get("message");
+      const username = params.get("username");
+      const robloxId = params.get("roblox_id");
+
+      const banner = document.getElementById("status-banner");
+      if (!status || !banner) return;
+
+      if (status === "success") {
+        banner.className = "success";
+        const userText = username
+          ? `<strong>${escapeHtml(username)}</strong>${robloxId ? ` (ID: ${escapeHtml(robloxId)})` : ""}`
+          : "your Roblox account";
+        const extraText = message ? ` ${escapeHtml(message)}` : "";
+        banner.innerHTML = `Verified as ${userText}.${extraText} You can go back to Discord now.`;
+      } else if (status === "error") {
+        banner.className = "error";
+        banner.textContent = message || "Verification failed. Please run /verify again in Discord.";
+      }
+
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+    })();
+  </script>
+</body>
+</html>
